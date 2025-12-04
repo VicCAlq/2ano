@@ -1,7 +1,7 @@
-# Prova do terceiro trimestre para os primeiros anos:
-Os alunos ao longo do trimestre trabalharam no projeto de uma Landing Page para o jogo criado nas disciplinas dos professores Sílvio Romero e Ju Caldas. Neste ponto do projeto é esperado que a aplicação possua as páginas "Home", "Galeria" e "Sobre a equipe", bem como ter implementada uma classe para os Assinantes ou PessoasInscritas para receber notícias sobre o projeto.
+# Prova do terceiro trimestre para os segundos anos:
+Os alunos ao longo do trimestre trabalharam no projeto de uma Landing Page para o jogo criado nas disciplinas dos professores Sílvio Romero e Ju Caldas. Neste ponto do projeto é esperado que a aplicação possua as páginas "Home", "Galeria" e "Sobre a equipe", bem como ter implementada uma classe para os Assinantes ou PessoasInscritas para receber notícias sobre o projeto. Caso este não seja o caso para sua aplicação, consulte o projeto base no link: https://github.com/VicCAlq/basePagina
 
-Para os alunos que não completaram o projeto, será disponibilizada uma base onde poderão trabalhar em cima, mas neste caso a nota máxima para o aluno será seis (6), enquanto que para os alunos que usaram o próprio projeto, estes podem chegar a nota dez (10).
+Para os alunos que não completaram o projeto, será disponibilizada uma base onde poderão trabalhar em cima, mas neste caso a nota máxima para o aluno será seis (6), enquanto que para os alunos que usaram o próprio projeto, estes podem chegar a nota dez (10). Alternativamente, podem utilizar seu próprio projeto e tentar implementar as partes que faltaram se baseando no projeto base (o basePagina do link acima).
 
 A prova consistirá em atividades de desenvolvimento de funcionalidades para a aplicação, sendo uma (1) delas obrigatória, valendo metade da nota, e mais duas atividades a escolha do aluno dentre quatro opções. Seguem as regras abaixo quanto as atividades:
 
@@ -13,15 +13,15 @@ A prova consistirá em atividades de desenvolvimento de funcionalidades para a a
 ## Lista de atividades
 ### Obrigatória (5 pontos) (3 pontos para quem usar projeto disponibilizado pelo professor)
 
-No momento, a implementação das mensagens a serem enviadas para os assinantes foi implementada como uma lista de objetos, onde cada objeto tem o formato { mensagem: string, data: Date }. Apesar de eficaz, gera _muita_ duplicação: Nós provavelmente queremos enviar as mesmas mensagens para todo mundo.
+No momento, a implementação das mensagens a serem enviadas para os assinantes foi implementada como uma lista de objetos, onde cada objeto tem o formato `{ mensagem: string, data: Date }`. Apesar de eficaz, gera _muita_ duplicação: Nós provavelmente queremos enviar as mesmas mensagens para todo mundo.
 
-Para solucionar isso, crie e classe "Email", em formato TypeScript (arquivo terminado em .ts) Ela deve receber em seu constructor os seguintes argumentos:
+Para solucionar isso, crie um arquivo para a classe "Email", em formato TypeScript (arquivo terminado em .ts). Ela deve receber em seu constructor os seguintes argumentos:
 
-- remetente: string. É o email de nosso projeto, podem usar algo como "nome_do_meu_jogo@nave.org.br", obviamente substituindo "nome_do_meu_jogo" pelo nome de seu jogo, usando underlines ( _ ) para separar palavras.
-- destinatarios: Lista de strings (declarado como string[] ou Array<string>). Lista com os emails dos assinantes que receberão a mensagem.
-- conteudo: string. É o conteúdo em texto da mensagem.
-- assinatura: string. Vai ser a assinatura presente em todas as mensagens.
-- dataEnvio: Date. É a data para quando o email estará agendado.
+- remetente: `string`. É o email de nosso projeto, podem usar algo como "nome_do_meu_jogo@nave.org.br", obviamente substituindo "nome_do_meu_jogo" pelo nome de seu jogo, usando underlines ( _ ) para separar palavras. O jogo pode ser inventado.
+- destinatarios: Lista de strings (declarado como `string[]` ou `Array<string>`). Lista com os emails dos assinantes que receberão a mensagem.
+- conteudo: `string`. É o conteúdo em texto da mensagem.
+- assinatura: `string`. Vai ser a assinatura presente em todas as mensagens.
+- dataEnvio: `Date`. É a data para quando o email estará agendado.
 
 Esta classe também precisará de quatro métodos:
 
@@ -30,7 +30,8 @@ Esta classe também precisará de quatro métodos:
 3. alterarConteudo(novoConteudo: string). Recebe um texto com o novo conteúdo e modifica o valor de this.conteudo para o novo valor.
 4. alterarData(novaData: Date). Recebe nova data e modifica o valor de this.dataEnvio para o novo valor.
 
-Os objetos da classe serão criados da seguinte forma:
+
+Para criarmos os objetos utilizando a classe que vocês fizerem acima, usaremos a classe da forma abaixo:
 ```javascript
 const meuEmail = new Email(
     "meu_jogo@nave.org.br",
@@ -40,6 +41,10 @@ const meuEmail = new Email(
     new Date("2026-01-10")
 ) // Ordem dos argumentos: remetente, destinatarios, conteudo, assinatura, dataEnvio
 ```
+
+(bônus) Ponto extra para quem estiver com o código organizado com boa indentação (o espaçamento de código antes de cada linha, para indicar se algum código é parte interna de outra coisa).
+
+Consultem exemplos de indentação no material de apoio, em especial no arquivo "js_7_classes_em_typescript"
 
 ### Livre-escolha (2,5 pontos cada) (1,5 pontos para quem usar projeto disponibilizado pelo professor)
 
@@ -51,9 +56,9 @@ const meuEmail = new Email(
     - Se ela receber uma única string, mantém o funcionamento inicial
     - Se ela receber uma lista de strings, percorre a lista this.destinatarios, e para cada destinatário existente verifica se o destinatário existente é igual a algum dos destinatários da lista a serem removidos, e caso seja igual, remove.
 
-3. (Foco em React) Adicionar uma página de "Como jogar", onde deve ser descrito como o jogo funciona.
+3. (Foco em HTML) Criar um componente representando uma página de "Como jogar", onde deve ser descrito como o jogo funciona.
 
-4. (Foco em React) Adicionar um componente de rodapé na página, sendo exibido independente do conteúdo a mostra no site (ou seja, fica visível na página Home, Galeria, Sobre, etc). Este rodapé deve conter os nomes de sua equipe (a que fez o jogo, não o site), e que devem ser um link (uma tag "âncora", ou <a>) para o email de seu jogo (se não tiver um, invente). 
+4. (Foco em HTML) Criar um componente representando um rodapé na página, sendo exibido independente do conteúdo a mostra no site (ou seja, fica visível na página Home, Galeria, Sobre, etc). Este rodapé deve conter os nomes de sua equipe (a que fez o jogo, não o site), e estes nomes devem ser links (uma tag "âncora", ou `<a>`) para o email de seu jogo (se não tiver um email, pode inventar, exemplo: "detona.na.lona@nave.org.br").
 
 # Instruções de envio
 
